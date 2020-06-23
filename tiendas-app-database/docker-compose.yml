@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: 'tiendas-app-mysql'
+    ports:
+      - '3306:3306'
+    volumes:
+      - tiendas-app-mysql-volume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: '1234'
+      MYSQL_DATABASE: 'tiendas-app'
+volumes:
+    tiendas-app-mysql-volume:
