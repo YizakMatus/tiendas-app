@@ -8,7 +8,6 @@ import tiendasapp.repository.ProductRepository;
 
 import java.math.BigDecimal;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,7 +22,7 @@ public class ProductController {
         this.commerceRepository = commerceRepository;
     }
 
-    @PostMapping(path = "/add")
+    @PostMapping()
     public @ResponseBody
     String addNewProduct(
             @RequestParam("name") String name,
@@ -40,12 +39,13 @@ public class ProductController {
         product.setPrice(price);
         product.setImage(image);
         product.setCommerce(commerce.get());
+        productRepository.save(product);
         return "Saved";
     }
 
-    @GetMapping(path = "/{commerceId}")
+    @GetMapping(path = "/{id}")
     public @ResponseBody
-    List<Product> getProductByCommerce(@PathVariable("commerceId") Integer commerceId) {
-        return (List<Product>) productRepository.findAllById(Collections.singleton(commerceId));
+    Product getProductByCommerce(@PathVariable("id") int id) {
+        return productRepository.findById(id).get();
     }
 }

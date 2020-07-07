@@ -1,5 +1,7 @@
 package tiendasapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -15,6 +17,7 @@ public class Product {
     private String image;
     @ManyToOne
     @JoinColumn(name = "commerce_id")
+    @JsonIgnore
     private Commerce commerce;
 
     public int getId() {

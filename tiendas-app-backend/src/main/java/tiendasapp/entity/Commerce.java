@@ -1,5 +1,7 @@
 package tiendasapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,8 +16,9 @@ public class Commerce {
     private String address;
     private String phone;
     private String password;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "commerce_id")
+    @JsonIgnore
     private List<Product> products;
 
     public Integer getId() {

@@ -16,7 +16,7 @@ public class CommerceController {
         this.commerceRepository = commerceRepository;
     }
 
-    @PostMapping(path = "/add")
+    @PostMapping()
     public @ResponseBody
     String addNewCommerce(
             @RequestParam String name,
@@ -36,7 +36,7 @@ public class CommerceController {
         return "Saved";
     }
 
-    @GetMapping(path = "/")
+    @GetMapping()
     public @ResponseBody
     List<Commerce> getAllCommerces() {
         return (List<Commerce>) commerceRepository.findAll();
