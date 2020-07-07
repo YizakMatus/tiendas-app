@@ -18,12 +18,13 @@ public class CommerceController {
 
     @PostMapping(path = "/add")
     public @ResponseBody
-    String addNewCommerce(@RequestParam String name,
-                          @RequestParam String ruc,
-                          @RequestParam String email,
-                          @RequestParam String address,
-                          @RequestParam String phone,
-                          @RequestParam String password) {
+    String addNewCommerce(
+            @RequestParam String name,
+            @RequestParam String ruc,
+            @RequestParam String email,
+            @RequestParam String address,
+            @RequestParam String phone,
+            @RequestParam String password) {
         Commerce commerce = new Commerce();
         commerce.setName(name);
         commerce.setRuc(ruc);
