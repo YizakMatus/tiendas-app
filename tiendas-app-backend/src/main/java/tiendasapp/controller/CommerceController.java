@@ -2,6 +2,7 @@ package tiendasapp.controller;
 
 import org.springframework.web.bind.annotation.*;
 import tiendasapp.entity.Commerce;
+import tiendasapp.entity.Product;
 import tiendasapp.repository.CommerceRepository;
 
 import java.util.List;
@@ -40,5 +41,11 @@ public class CommerceController {
     public @ResponseBody
     List<Commerce> getAllCommerces() {
         return (List<Commerce>) commerceRepository.findAll();
+    }
+
+    @GetMapping("/{id}/products")
+    public @ResponseBody
+    List<Product> getAllCommerces(@PathVariable("id") int id) {
+        return commerceRepository.findById(id).get().getProducts();
     }
 }
