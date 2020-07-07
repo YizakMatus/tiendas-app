@@ -2,7 +2,6 @@ package tiendasapp.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Optional;
 
 @Entity
 public class Product {
@@ -16,7 +15,7 @@ public class Product {
     private String image;
     @ManyToOne
     @JoinColumn(name = "commerce_id")
-    private Optional<Commerce> commerce;
+    private Commerce commerce;
 
     public int getId() {
         return id;
@@ -66,11 +65,11 @@ public class Product {
         this.image = image;
     }
 
-    public Optional<Commerce> getCommerce() {
+    public Commerce getCommerce() {
         return commerce;
     }
 
-    public void setCommerce(Optional<Commerce> commerce) {
+    public void setCommerce(Commerce commerce) {
         this.commerce = commerce;
     }
 }

@@ -1,9 +1,7 @@
 package tiendasapp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Commerce {
@@ -16,6 +14,9 @@ public class Commerce {
     private String address;
     private String phone;
     private String password;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "commerce_id")
+    private List<Product> products;
 
     public Integer getId() {
         return id;
@@ -71,5 +72,13 @@ public class Commerce {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

@@ -7,6 +7,8 @@ import tiendasapp.repository.CommerceRepository;
 import tiendasapp.repository.ProductRepository;
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,12 +26,12 @@ public class ProductController {
     @PostMapping(path = "/add")
     public @ResponseBody
     String addNewProduct(
-            @RequestParam String name,
-            @RequestParam String description,
-            @RequestParam String unit,
-            @RequestParam BigDecimal price,
-            @RequestParam String image,
-            @RequestParam int commerceId) {
+            @RequestParam("name") String name,
+            @RequestParam("description") String description,
+            @RequestParam("unit") String unit,
+            @RequestParam("price") BigDecimal price,
+            @RequestParam("image") String image,
+            @RequestParam("commerceId") int commerceId) {
         Optional<Commerce> commerce = commerceRepository.findById(commerceId);
         Product product = new Product();
         product.setName(name);
@@ -37,14 +39,13 @@ public class ProductController {
         product.setUnit(unit);
         product.setPrice(price);
         product.setImage(image);
-        product.setCommerce(commerce);
-        productRepository.save(product);
+        product.setCommerce(commerce.get());
         return "Saved";
     }
 
     @GetMapping(path = "/{commerceId}")
     public @ResponseBody
-    Optional<Product> getProductByCommerce(@PathVariable("commerceId") int commerceId) {
-        return productRepository.findById(commerceId);
+    List<Product> getProductByCommerce(@PathVariable("commerceId") Integer commerceId) {
+        return (List<Product>) productRepository.findAllById(Collections.singleton(commerceId));
     }
 }
