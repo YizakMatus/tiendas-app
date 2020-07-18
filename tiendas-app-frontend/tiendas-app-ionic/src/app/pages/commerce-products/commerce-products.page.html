@@ -9,11 +9,11 @@
     <ion-item *ngFor="let product of products">
       <ion-thumbnail slot="start">
         <img
-          src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+          src="https://placeimg.com/50/50/food"
         />
       </ion-thumbnail>
-      <ion-label>{{product.nombre}}</ion-label>
-      <ion-badge color="primary">${{product.precio}}</ion-badge>
+      <ion-label>{{product.name}}</ion-label>
+      <ion-badge color="primary">${{product.price}}</ion-badge>
     </ion-item>
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
