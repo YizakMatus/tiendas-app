@@ -6,12 +6,12 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let product of products">
       <ion-thumbnail slot="start">
         <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
       </ion-thumbnail>
-      <ion-label>Galletas</ion-label>
-      <ion-badge color="primary">$1.00</ion-badge>
+      <ion-label>{{product.nombre}}</ion-label>
+      <ion-badge color="primary">${{product.precio}}</ion-badge>
     </ion-item>
   </ion-list>
 </ion-content>

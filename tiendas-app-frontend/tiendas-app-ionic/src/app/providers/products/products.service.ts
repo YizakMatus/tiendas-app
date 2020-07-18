@@ -7,15 +7,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductsService {
-  products: [];
 
   constructor(public http: HttpClient) { }
 
   load(): any {
-    if (this.products) {
-      return of(this.products);
-    } else {
-      return this.http.get('assets/data/commerce-products.json')
-    }
+    return this.http.get('assets/data/commerce-products.json')
   }
 }
