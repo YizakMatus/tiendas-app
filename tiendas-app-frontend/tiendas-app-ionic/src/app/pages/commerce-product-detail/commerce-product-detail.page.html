@@ -9,28 +9,23 @@
 
 <ion-content class="speaker-detail">
   <div class="speaker-background">
-    <img [src]="product?.img" [alt]="product?.name">
-    <h2>{{product?.name}}</h2>
+    <img [src]="product?.img" [alt]="product?.name" />
   </div>
+
+  <ion-grid>
+    <ion-row size="9">
+      <ion-col>
+        <h2>{{product?.name}}</h2>
+      </ion-col>
+      <ion-col size="3" class="price">
+        <ion-chip color="primary">
+          <ion-label>${{product?.price}}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <div class="ion-padding speaker-detail">
     <p>{{product?.description}}</p>
-
-    <hr>
-
-    <ion-chip color="twitter" button (click)="openExternalUrl('https://twitter.com/' + speaker.twitter)">
-      <ion-icon name="logo-twitter"></ion-icon>
-      <ion-label>Twitter</ion-label>
-    </ion-chip>
-
-    <ion-chip color="dark" button (click)="openExternalUrl('https://github.com/ionic-team/ionic')">
-      <ion-icon name="logo-github"></ion-icon>
-      <ion-label>GitHub</ion-label>
-    </ion-chip>
-
-    <ion-chip color="instagram" button (click)="openExternalUrl('https://instagram.com/ionicframework')">
-      <ion-icon name="logo-instagram"></ion-icon>
-      <ion-label>Instagram</ion-label>
-    </ion-chip>
   </div>
 </ion-content>
