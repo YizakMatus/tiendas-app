@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'commerce-product-detail/:index',
     loadChildren: () => import('./pages/commerce-product-detail/commerce-product-detail.module').then( m => m.CommerceProductDetailPageModule)
+  },
+  {
+    path: 'commerce-product-create',
+    loadChildren: () => import('./commerce-product-create/commerce-product-create.module').then( m => m.CommerceProductCreatePageModule)
   }
 ];
 
