@@ -1,9 +1,148 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>commerce-product-creation</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Crear Producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form #loginForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="primary"
+          >Nombre</ion-label
+        >
+        <ion-input
+          [(ngModel)]="product.name"
+          name="name"
+          type="text"
+          #name="ngModel"
+          spellcheck="false"
+          autocapitalize="off"
+          required
+        >
+        </ion-input>
+      </ion-item>
 
+      <ion-text color="danger">
+        <p
+          [hidden]="product.name || submitted == false"
+          class="ion-padding-start"
+        >
+          Nombre requerido
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary"
+          >Unidad</ion-label
+        >
+        <ion-input
+          [(ngModel)]="product.unit"
+          name="unit"
+          type="text"
+          #unit="ngModel"
+          spellcheck="false"
+          autocapitalize="off"
+          required
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p
+          [hidden]="product.unit || submitted == false"
+          class="ion-padding-start"
+        >
+          Unidad requerida
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary"
+          >Precio</ion-label
+        >
+        <ion-input
+          [(ngModel)]="product.price"
+          name="price"
+          type="number"
+          #price="ngModel"
+          spellcheck="false"
+          autocapitalize="off"
+          required
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p
+          [hidden]="product.price || submitted == false"
+          class="ion-padding-start"
+        >
+          Precio requerido
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary"
+          >Descripción</ion-label
+        >
+        <ion-input
+          [(ngModel)]="product.description"
+          name="description"
+          type="text"
+          #description="ngModel"
+          spellcheck="false"
+          autocapitalize="off"
+          required
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p
+          [hidden]="product.description || submitted == false"
+          class="ion-padding-start"
+        >
+          Descripción requerida
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary"
+          >URL Imagen</ion-label
+        >
+        <ion-input
+          [(ngModel)]="product.url"
+          name="url"
+          type="text"
+          #url="ngModel"
+          spellcheck="false"
+          autocapitalize="off"
+          required
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p
+          [hidden]="product.url || submitted == false"
+          class="ion-padding-start"
+        >
+          URL requerida
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onSave(loginForm)" type="submit" expand="block"
+          >Guardar</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>
