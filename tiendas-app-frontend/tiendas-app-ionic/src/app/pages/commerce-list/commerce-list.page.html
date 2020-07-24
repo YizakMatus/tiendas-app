@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>commerce-list</ion-title>
+    <ion-title>Comercios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let commerce of commerces; let i = index" (click)="onCommerce()">
+      <ion-label>
+        <h2>{{commerce?.name}}</h2>
+        <p>{{commerce?.address}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
