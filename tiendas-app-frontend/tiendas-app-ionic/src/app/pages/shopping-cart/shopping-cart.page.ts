@@ -16,4 +16,10 @@ export class ShoppingCartPage implements OnInit {
   ionViewWillEnter() {
     this.products = this.shoppingCartService.products;
   }
+
+  onRemove(product) {
+    const index = this.products.indexOf(product);
+    this.shoppingCartService.products.splice(index, 1);
+    this.products = this.shoppingCartService.products;
+  }
 }
