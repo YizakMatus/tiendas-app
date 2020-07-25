@@ -1,10 +1,14 @@
 [
     {
         "name": "Los Arupos",
-        "address": "Conocoto"
+        "address": "Conocoto",
+        "email": "losarupos@example.com",
+        "phone": "0987654321"
     },
     {
         "name": "Flecha Roja",
-        "address": "La Merced"
+        "address": "La Merced",
+        "email": "flecharoja@example.com",
+        "phone": "0987654321"
     }
 ]

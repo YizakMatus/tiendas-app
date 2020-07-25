@@ -14,6 +14,6 @@ export class CommerceDetailPage implements OnInit {
   ngOnInit() {}
 
   ionViewWillEnter() {
-    this.commerce = this.commercesService.getSelectedCommerce();
+    this.commerce = this.commercesService.selectedCommerce;
   }
 }

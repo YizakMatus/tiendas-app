@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class CommercesService {
   private commerces = [];
-  private selectedCommerce;
+  selectedCommerce;
 
   constructor(public http: HttpClient) {}
 
@@ -16,9 +16,5 @@ export class CommercesService {
       return of(this.commerces);
     }
     return this.http.get("assets/data/commerce-list.json");
-  }
-
-  getSelectedCommerce() {
-    return this.selectedCommerce;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CommercesService } from "../../providers/commerces/commerces.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-commerce-list",
@@ -9,7 +10,10 @@ import { CommercesService } from "../../providers/commerces/commerces.service";
 export class CommerceListPage implements OnInit {
   commerces = [];
 
-  constructor(private commercesService: CommercesService) {}
+  constructor(
+    private commercesService: CommercesService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.commercesService.load().subscribe((data) => {
@@ -17,5 +21,8 @@ export class CommerceListPage implements OnInit {
     });
   }
 
-  onCommerce() {}
+  onCommerce(commerce) {
+    this.commercesService.selectedCommerce = commerce;
+    this.router.navigateByUrl("/commerce-detail");
+  }
 }
