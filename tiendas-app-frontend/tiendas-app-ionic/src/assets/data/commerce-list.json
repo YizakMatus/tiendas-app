@@ -1,14 +1,16 @@
 [
-    {
-        "name": "Los Arupos",
-        "address": "Conocoto",
-        "email": "losarupos@example.com",
-        "phone": "0987654321"
-    },
-    {
-        "name": "Flecha Roja",
-        "address": "La Merced",
-        "email": "flecharoja@example.com",
-        "phone": "0987654321"
-    }
+  {
+    "id": 1,
+    "name": "Los Arupos",
+    "address": "Conocoto",
+    "email": "losarupos@example.com",
+    "phone": "0987654321"
+  },
+  {
+    "id": 2,
+    "name": "Flecha Roja",
+    "address": "La Merced",
+    "email": "flecharoja@example.com",
+    "phone": "0987654321"
+  }
 ]

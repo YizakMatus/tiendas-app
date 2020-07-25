@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Galletas Óreo",
+        "description": "Galletas Óreo tradicionales de 200gr",
+        "price": 1.99,
+        "img": "https://placeimg.com/640/480/food"
+    },
+    {
+        "name": "Pan de Chocolate",
+        "description": "Pan de Chocolate Bimbo",
+        "price": 3.99
+    },
+    {
+        "name": "Bananas",
+        "description": "Bananas ecuatorianas",
+        "price": 0.99
+    },
+    {
+        "name": "Jabón Dove",
+        "description": "Jabón Dove paquete de 4 unidades",
+        "price": 3.99
+    },
+    {
+        "name": "Bolsas de basura",
+        "description": "Bolsas de basura de baño",
+        "price": 0.79
+    }
+]
