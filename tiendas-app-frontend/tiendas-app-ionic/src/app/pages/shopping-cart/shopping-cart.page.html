@@ -14,6 +14,7 @@
         <img src="https://placeimg.com/50/50/food" />
       </ion-thumbnail>
       <ion-label>{{product.name}}</ion-label>
+      <ion-badge color="primary">${{product.price}}</ion-badge>
       <ion-icon
         name="trash"
         color="danger"
@@ -23,3 +24,13 @@
     </ion-item>
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-chip>
+      <ion-icon name="heart" color="dark"></ion-icon>
+      <ion-label>Total: ${{total | number : '1.2-2'}}</ion-label>
+    </ion-chip>
+    <ion-button expand="block">Copiar lista</ion-button>
+  </ion-toolbar>
+</ion-footer>

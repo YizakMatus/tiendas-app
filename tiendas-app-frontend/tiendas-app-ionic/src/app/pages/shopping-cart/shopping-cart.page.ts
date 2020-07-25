@@ -8,6 +8,7 @@ import { ShoppingCartService } from "../../providers/shopping-cart/shopping-cart
 })
 export class ShoppingCartPage implements OnInit {
   products = [];
+  total = 0;
 
   constructor(private shoppingCartService: ShoppingCartService) {}
 
@@ -15,11 +16,13 @@ export class ShoppingCartPage implements OnInit {
 
   ionViewWillEnter() {
     this.products = this.shoppingCartService.products;
+    this.total = this.shoppingCartService.getTotal();
   }
 
   onRemove(product) {
     const index = this.products.indexOf(product);
     this.shoppingCartService.products.splice(index, 1);
     this.products = this.shoppingCartService.products;
+    this.total = this.shoppingCartService.getTotal();
   }
 }
