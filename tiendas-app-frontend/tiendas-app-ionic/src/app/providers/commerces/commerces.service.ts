@@ -17,4 +17,8 @@ export class CommercesService {
     }
     return this.http.get("assets/data/commerce-list.json");
   }
+
+  getSelectedCommerce() {
+    return this.selectedCommerce;
+  }
 }
