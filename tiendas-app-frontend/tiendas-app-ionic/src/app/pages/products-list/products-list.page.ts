@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "../../providers/products/products.service";
 import { CommercesService } from "../../providers/commerces/commerces.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-products-list",
@@ -12,7 +13,8 @@ export class ProductsListPage implements OnInit {
 
   constructor(
     private productsService: ProductsService,
-    private commerceService: CommercesService
+    private commerceService: CommercesService,
+    private router: Router
   ) {}
 
   ngOnInit() {}
@@ -23,5 +25,10 @@ export class ProductsListPage implements OnInit {
       .subscribe((data: any) => {
         this.products = data;
       });
+  }
+
+  onProduct(product) {
+    this.productsService.selectedProduct = product;
+    this.router.navigateByUrl("/product-detail");
   }
 }

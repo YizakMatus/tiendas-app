@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>product-detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="speaker-background">
+    <img [src]="product?.img" [alt]="product?.name" />
+  </div>
 
+  <ion-grid>
+    <ion-row size="9">
+      <ion-col>
+        <h2>{{product?.name}}</h2>
+      </ion-col>
+      <ion-col size="3" class="price">
+        <ion-chip color="primary">
+          <ion-label>${{product?.price}}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="ion-padding speaker-detail">
+    <p>{{product?.description}}</p>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

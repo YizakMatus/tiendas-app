@@ -3,13 +3,17 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>products-list</ion-title>
+    <ion-title>Lista de Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let product of products;" detail>
+    <ion-item
+      *ngFor="let product of products;"
+      detail
+      (click)="onProduct(product)"
+    >
       <ion-thumbnail slot="start">
         <img src="https://placeimg.com/50/50/food" />
       </ion-thumbnail>

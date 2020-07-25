@@ -8,6 +8,7 @@ import { of } from "rxjs";
 export class ProductsService {
   private products = [];
   private productsByCommerce = [];
+  selectedProduct;
 
   constructor(public http: HttpClient) {}
 
