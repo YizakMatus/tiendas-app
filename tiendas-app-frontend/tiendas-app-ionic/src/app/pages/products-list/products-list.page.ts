@@ -31,4 +31,8 @@ export class ProductsListPage implements OnInit {
     this.productsService.selectedProduct = product;
     this.router.navigateByUrl("/product-detail");
   }
+
+  onShoppingCart() {
+    this.router.navigateByUrl("/shopping-cart");
+  }
 }
