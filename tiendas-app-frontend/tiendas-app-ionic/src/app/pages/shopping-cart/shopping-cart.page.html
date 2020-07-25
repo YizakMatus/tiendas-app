@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>shopping-cart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let product of products;">
+      <ion-thumbnail slot="start">
+        <img src="https://placeimg.com/50/50/food" />
+      </ion-thumbnail>
+      <ion-label>{{product.name}}</ion-label>
+      <ion-badge color="primary">${{product.price}}</ion-badge>
+    </ion-item>
+  </ion-list>
 </ion-content>
