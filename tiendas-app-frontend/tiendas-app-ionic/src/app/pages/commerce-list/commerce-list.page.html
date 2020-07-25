@@ -1,12 +1,19 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Comercios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let commerce of commerces; let i = index" (click)="onCommerce(commerce)" detail>
+    <ion-item
+      *ngFor="let commerce of commerces; let i = index"
+      (click)="onCommerce(commerce)"
+      detail
+    >
       <ion-label>
         <h2>{{commerce?.name}}</h2>
         <p>{{commerce?.address}}</p>
