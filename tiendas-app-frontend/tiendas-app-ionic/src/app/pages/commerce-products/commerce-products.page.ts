@@ -17,7 +17,9 @@ export class CommerceProductsPage implements OnInit {
     private authService: AuthService
   ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter() {
     this.productsService
       .getProductsByCommerce(this.authService.user.id)
       .subscribe((data: []) => {
