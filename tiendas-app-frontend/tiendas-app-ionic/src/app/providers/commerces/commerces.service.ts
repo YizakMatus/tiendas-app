@@ -15,6 +15,6 @@ export class CommercesService {
     if (this.commerces.length) {
       return of(this.commerces);
     }
-    return this.http.get("assets/data/commerce-list.json");
+    return this.http.get("http://localhost:8080/commerce");
   }
 }

@@ -19,8 +19,7 @@ export class ShoppingCartPage implements OnInit {
     this.total = this.shoppingCartService.getTotal();
   }
 
-  onRemove(product) {
-    const index = this.products.indexOf(product);
+  onRemove(index) {
     this.shoppingCartService.products.splice(index, 1);
     this.products = this.shoppingCartService.products;
     this.total = this.shoppingCartService.getTotal();
