@@ -44,6 +44,7 @@ public class ProductController {
         return "Saved";
     }
 
+    @CrossOrigin
     @GetMapping(path = "/{id}")
     public @ResponseBody
     Product getProductByCommerce(@PathVariable("id") int id) {

@@ -21,6 +21,7 @@ public class CommerceController {
         this.commerceRepository = commerceRepository;
     }
 
+    @CrossOrigin
     @PostMapping()
     public @ResponseBody
     String addNewCommerce(
@@ -43,12 +44,14 @@ public class CommerceController {
         return "Saved";
     }
 
+    @CrossOrigin
     @GetMapping()
     public @ResponseBody
     List<Commerce> getAllCommerces() {
         return (List<Commerce>) commerceRepository.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/{id}/products")
     public @ResponseBody
     List<Product> getAllCommerces(@PathVariable("id") int id) {
