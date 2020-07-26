@@ -1,28 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { ProductsService } from "../../providers/products/products.service";
+import { AuthService } from "../../providers/auth/auth.service";
+import { NavController } from "@ionic/angular";
 
 @Component({
-  selector: 'app-commerce-product-creation',
-  templateUrl: './commerce-product-creation.page.html',
-  styleUrls: ['./commerce-product-creation.page.scss'],
+  selector: "app-commerce-product-creation",
+  templateUrl: "./commerce-product-creation.page.html",
+  styleUrls: ["./commerce-product-creation.page.scss"],
 })
 export class CommerceProductCreationPage implements OnInit {
-  product = {}
+  product = {};
   submitted = false;
 
-  constructor() { }
+  constructor(
+    private productsService: ProductsService,
+    private authService: AuthService,
+    private navController: NavController
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onSave(form: NgForm){
+  onSave(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
-      console.log(form.value);
-      // this.userData.login(this.login.username);
-      // this.router.navigateByUrl('/commerce-products');
+      const product = form.value;
+      product.commerceId = this.authService.user.id;
+      this.productsService.create(product).subscribe(
+        (data) => {
+          this.navController.back();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }
   }
-
 }

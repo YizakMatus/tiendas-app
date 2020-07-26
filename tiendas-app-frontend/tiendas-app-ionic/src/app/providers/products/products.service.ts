@@ -27,4 +27,8 @@ export class ProductsService {
       `http://localhost:8080/commerce/${commerceId}/products`
     );
   }
+
+  create(product) {
+    return this.http.post("http://localhost:8080/product", product);
+  }
 }
