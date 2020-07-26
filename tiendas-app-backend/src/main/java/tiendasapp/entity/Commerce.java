@@ -16,6 +16,7 @@ public class Commerce {
     private String address;
     private String phone;
     private String password;
+    private String description;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "commerce_id")
     @JsonIgnore
@@ -83,5 +84,13 @@ public class Commerce {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

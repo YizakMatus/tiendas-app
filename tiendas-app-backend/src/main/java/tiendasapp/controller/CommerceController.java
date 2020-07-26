@@ -25,7 +25,8 @@ public class CommerceController {
             @RequestParam String email,
             @RequestParam String address,
             @RequestParam String phone,
-            @RequestParam String password) {
+            @RequestParam String password,
+            @RequestParam String description) {
         Commerce commerce = new Commerce();
         commerce.setName(name);
         commerce.setRuc(ruc);
@@ -33,6 +34,7 @@ public class CommerceController {
         commerce.setAddress(address);
         commerce.setPhone(phone);
         commerce.setPassword(password);
+        commerce.setDescription(description);
         commerceRepository.save(commerce);
         return "Saved";
     }
