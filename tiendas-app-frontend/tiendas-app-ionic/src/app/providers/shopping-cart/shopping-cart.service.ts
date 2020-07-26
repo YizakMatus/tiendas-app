@@ -19,4 +19,12 @@ export class ShoppingCartService {
     });
     return total;
   }
+
+  getProductsList() {
+    let list = "";
+    this.products.forEach((product, index) => {
+      list += `${index + 1}. ${product.name}, $${product.price}` + "\n";
+    });
+    return list;
+  }
 }

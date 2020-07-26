@@ -31,6 +31,6 @@
       <ion-icon name="heart" color="dark"></ion-icon>
       <ion-label>Total: ${{total | number : '1.2-2'}}</ion-label>
     </ion-chip>
-    <ion-button expand="block">Copiar lista</ion-button>
+    <ion-button expand="block" (click)="onCopy()">Copiar lista</ion-button>
   </ion-toolbar>
 </ion-footer>
