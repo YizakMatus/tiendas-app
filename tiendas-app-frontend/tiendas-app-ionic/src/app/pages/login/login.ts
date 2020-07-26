@@ -6,6 +6,7 @@ import { UserData } from "../../providers/user-data";
 
 import { UserOptions } from "../../interfaces/user-options";
 import { AuthService } from "../../providers/auth/auth.service";
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: "page-login",
@@ -19,7 +20,8 @@ export class LoginPage {
   constructor(
     public userData: UserData,
     public router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastController: ToastController
   ) {}
 
   onLogin(form: NgForm) {
@@ -31,13 +33,17 @@ export class LoginPage {
         .authenticate(form.value.email, form.value.password)
         .subscribe(
           (user) => {
-            console.log(user);
+            this.router.navigateByUrl("/commerce-products");
           },
-          (error) => {
-            console.log(error);
+          async (error) => {
+            const toast = await this.toastController.create({
+              duration: 3000,
+              header: "Error al autenticar. Intente de nuevo.",
+              position: "bottom",
+            });
+            toast.present();
           }
         );
-      // this.router.navigateByUrl("/commerce-products");
     }
   }
 }
