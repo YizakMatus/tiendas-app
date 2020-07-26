@@ -26,7 +26,7 @@ public class ProductController {
     @CrossOrigin
     @PostMapping()
     public @ResponseBody
-    String addNewProduct(@RequestBody ProductRequest productRequest) {
+    Product addNewProduct(@RequestBody ProductRequest productRequest) {
         Optional<Commerce> commerce = commerceRepository.findById(productRequest.commerceId);
         Product product = new Product();
         product.setName(productRequest.name);
@@ -36,7 +36,7 @@ public class ProductController {
         product.setImage(productRequest.image);
         product.setCommerce(commerce.get());
         productRepository.save(product);
-        return "Saved";
+        return product;
     }
 
     @CrossOrigin
