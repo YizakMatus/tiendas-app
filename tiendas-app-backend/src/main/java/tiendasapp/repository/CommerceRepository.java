@@ -4,4 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import tiendasapp.entity.Commerce;
 
 public interface CommerceRepository extends CrudRepository<Commerce, Integer> {
+    Commerce findByEmailAndPassword(String email, String password);
 }

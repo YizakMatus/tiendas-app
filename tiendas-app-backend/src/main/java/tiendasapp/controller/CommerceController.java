@@ -1,6 +1,9 @@
 package tiendasapp.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.server.ResponseStatusException;
 import tiendasapp.entity.Commerce;
 import tiendasapp.entity.Product;
 import tiendasapp.repository.CommerceRepository;
@@ -49,5 +52,15 @@ public class CommerceController {
     public @ResponseBody
     List<Product> getAllCommerces(@PathVariable("id") int id) {
         return commerceRepository.findById(id).get().getProducts();
+    }
+
+    @PostMapping("/auth")
+    public @ResponseBody
+    Commerce authenticate(@RequestParam String email, @RequestParam String password) {
+        Commerce commerce = commerceRepository.findByEmailAndPassword(email, password);
+        if (commerce == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+        return commerce;
     }
 }
