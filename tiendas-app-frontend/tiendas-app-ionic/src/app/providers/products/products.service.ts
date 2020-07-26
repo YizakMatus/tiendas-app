@@ -23,6 +23,8 @@ export class ProductsService {
     if (this.productsByCommerce.length) {
       return of(this.productsByCommerce);
     }
-    return this.http.get("assets/data/products.json");
+    return this.http.get(
+      `http://localhost:8080/commerce/${commerceId}/products`
+    );
   }
 }
