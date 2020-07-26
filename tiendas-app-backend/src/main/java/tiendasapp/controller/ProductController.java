@@ -3,6 +3,7 @@ package tiendasapp.controller;
 import org.springframework.web.bind.annotation.*;
 import tiendasapp.entity.Commerce;
 import tiendasapp.entity.Product;
+import tiendasapp.model.ProductRequest;
 import tiendasapp.repository.CommerceRepository;
 import tiendasapp.repository.ProductRepository;
 
@@ -25,20 +26,14 @@ public class ProductController {
     @CrossOrigin
     @PostMapping()
     public @ResponseBody
-    String addNewProduct(
-            @RequestParam("name") String name,
-            @RequestParam("description") String description,
-            @RequestParam("unit") String unit,
-            @RequestParam("price") BigDecimal price,
-            @RequestParam("image") String image,
-            @RequestParam("commerceId") int commerceId) {
-        Optional<Commerce> commerce = commerceRepository.findById(commerceId);
+    String addNewProduct(@RequestBody ProductRequest productRequest) {
+        Optional<Commerce> commerce = commerceRepository.findById(productRequest.commerceId);
         Product product = new Product();
-        product.setName(name);
-        product.setDescription(description);
-        product.setUnit(unit);
-        product.setPrice(price);
-        product.setImage(image);
+        product.setName(productRequest.name);
+        product.setDescription(productRequest.description);
+        product.setUnit(productRequest.unit);
+        product.setPrice(productRequest.price);
+        product.setImage(productRequest.image);
         product.setCommerce(commerce.get());
         productRepository.save(product);
         return "Saved";
