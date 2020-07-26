@@ -22,6 +22,7 @@ public class ProductController {
         this.commerceRepository = commerceRepository;
     }
 
+    @CrossOrigin
     @PostMapping()
     public @ResponseBody
     String addNewProduct(

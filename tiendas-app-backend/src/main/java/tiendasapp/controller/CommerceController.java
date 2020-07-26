@@ -54,6 +54,7 @@ public class CommerceController {
         return commerceRepository.findById(id).get().getProducts();
     }
 
+    @CrossOrigin
     @PostMapping("/auth")
     public @ResponseBody
     Commerce authenticate(@RequestParam String email, @RequestParam String password) {
