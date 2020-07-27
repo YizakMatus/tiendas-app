@@ -31,7 +31,7 @@ export class ShoppingCartPage implements OnInit {
 
   private copyStringToClipboard(str) {
     // Create new element
-    var el = document.createElement("textarea");
+    var el: any = document.createElement("textarea");
     // Set value (string to be copied)
     el.value = str;
     // Set non-editable to avoid focus and move outside of view
