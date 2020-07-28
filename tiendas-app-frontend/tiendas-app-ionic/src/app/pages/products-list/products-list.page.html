@@ -15,7 +15,7 @@
       (click)="onProduct(product)"
     >
       <ion-thumbnail slot="start">
-        <img src="https://placeimg.com/50/50/food" />
+        <img [src]="product.image" />
       </ion-thumbnail>
       <ion-label>{{product.name}}</ion-label>
       <ion-badge color="primary">${{product.price}}</ion-badge>
