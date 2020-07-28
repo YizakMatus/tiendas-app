@@ -12,9 +12,7 @@
   <form #loginForm="ngForm" novalidate>
     <ion-list>
       <ion-item>
-        <ion-label position="stacked" color="primary"
-          >Nombre</ion-label
-        >
+        <ion-label position="stacked" color="primary">Nombre</ion-label>
         <ion-input
           [(ngModel)]="product.name"
           name="name"
@@ -37,9 +35,7 @@
       </ion-text>
 
       <ion-item>
-        <ion-label position="stacked" color="primary"
-          >Unidad</ion-label
-        >
+        <ion-label position="stacked" color="primary">Unidad</ion-label>
         <ion-input
           [(ngModel)]="product.unit"
           name="unit"
@@ -62,9 +58,7 @@
       </ion-text>
 
       <ion-item>
-        <ion-label position="stacked" color="primary"
-          >Precio</ion-label
-        >
+        <ion-label position="stacked" color="primary">Precio</ion-label>
         <ion-input
           [(ngModel)]="product.price"
           name="price"
@@ -87,9 +81,7 @@
       </ion-text>
 
       <ion-item>
-        <ion-label position="stacked" color="primary"
-          >Descripción</ion-label
-        >
+        <ion-label position="stacked" color="primary">Descripción</ion-label>
         <ion-input
           [(ngModel)]="product.description"
           name="description"
@@ -112,14 +104,12 @@
       </ion-text>
 
       <ion-item>
-        <ion-label position="stacked" color="primary"
-          >URL Imagen</ion-label
-        >
+        <ion-label position="stacked" color="primary">URL Imagen</ion-label>
         <ion-input
-          [(ngModel)]="product.url"
-          name="url"
+          [(ngModel)]="product.image"
+          name="image"
           type="text"
-          #url="ngModel"
+          #image="ngModel"
           spellcheck="false"
           autocapitalize="off"
           required
@@ -129,10 +119,10 @@
 
       <ion-text color="danger">
         <p
-          [hidden]="product.url || submitted == false"
+          [hidden]="product.image || submitted == false"
           class="ion-padding-start"
         >
-          URL requerida
+          URL de imagen requerida
         </p>
       </ion-text>
     </ion-list>
