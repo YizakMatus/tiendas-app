@@ -31,4 +31,8 @@ export class ProductsService {
   create(product) {
     return this.http.post("http://localhost:8080/product", product);
   }
+
+  deleteProductById(id) {
+    return this.http.delete(`http://localhost:8080/product/${id}`);
+  }
 }

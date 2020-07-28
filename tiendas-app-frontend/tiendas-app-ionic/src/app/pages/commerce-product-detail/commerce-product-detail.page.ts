@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "../../providers/products/products.service";
 import { RouteConfigLoadStart, ActivatedRoute } from "@angular/router";
 import { AuthService } from "../../providers/auth/auth.service";
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: "app-commerce-product-detail",
@@ -14,7 +15,8 @@ export class CommerceProductDetailPage implements OnInit {
   constructor(
     private productsService: ProductsService,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private navController: NavController
   ) {}
 
   ngOnInit() {}
@@ -27,5 +29,16 @@ export class CommerceProductDetailPage implements OnInit {
         console.log(data[index]);
         this.product = data[index];
       });
+  }
+
+  onDelete() {
+    this.productsService.deleteProductById(this.product.id).subscribe(
+      (data) => {
+        this.navController.back();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
