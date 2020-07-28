@@ -19,13 +19,13 @@ export class ShoppingCartPage implements OnInit {
   ngOnInit() {}
 
   ionViewWillEnter() {
-    this.products = this.shoppingCartService.products;
+    this.products = this.shoppingCartService.getProducts();
     this.total = this.shoppingCartService.getTotal();
   }
 
   onRemove(index) {
-    this.shoppingCartService.products.splice(index, 1);
-    this.products = this.shoppingCartService.products;
+    this.shoppingCartService.getProducts().splice(index, 1);
+    this.products = this.shoppingCartService.getProducts();
     this.total = this.shoppingCartService.getTotal();
   }
 
