@@ -2,9 +2,8 @@ package tiendasapp.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.server.ResponseStatusException;
-import tiendasapp.entity.Auth;
+import tiendasapp.model.AuthRequest;
 import tiendasapp.entity.Commerce;
 import tiendasapp.entity.Product;
 import tiendasapp.repository.CommerceRepository;
@@ -61,8 +60,8 @@ public class CommerceController {
     @CrossOrigin
     @PostMapping("/auth")
     public @ResponseBody
-    Commerce authenticate(@RequestBody Auth auth) {
-        Commerce commerce = commerceRepository.findByEmailAndPassword(auth.email, auth.password);
+    Commerce authenticate(@RequestBody AuthRequest authRequest) {
+        Commerce commerce = commerceRepository.findByEmailAndPassword(authRequest.email, authRequest.password);
         if (commerce == null) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         }

@@ -7,8 +7,6 @@ import tiendasapp.model.ProductRequest;
 import tiendasapp.repository.CommerceRepository;
 import tiendasapp.repository.ProductRepository;
 
-import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.Optional;
 
 @RestController
@@ -44,5 +42,11 @@ public class ProductController {
     public @ResponseBody
     Product getProductByCommerce(@PathVariable("id") int id) {
         return productRepository.findById(id).get();
+    }
+
+    @CrossOrigin
+    @DeleteMapping(path = "/{id}")
+    public void deleteProduct(@PathVariable("id") int id) {
+        productRepository.deleteById(id);
     }
 }

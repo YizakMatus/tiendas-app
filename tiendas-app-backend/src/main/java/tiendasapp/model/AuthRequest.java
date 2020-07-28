@@ -1,6 +1,6 @@
-package tiendasapp.entity;
+package tiendasapp.model;
 
-public class Auth {
+public class AuthRequest {
     public String email;
     public String password;
 }
