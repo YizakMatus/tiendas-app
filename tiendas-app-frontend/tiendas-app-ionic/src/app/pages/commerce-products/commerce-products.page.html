@@ -18,7 +18,9 @@
         <img [src]="product.image" />
       </ion-thumbnail>
       <ion-label>{{product.name}}</ion-label>
-      <ion-badge color="primary">${{product.price}}</ion-badge>
+      <ion-badge color="primary"
+        >${{product.price | number : '1.2-2'}}</ion-badge
+      >
     </ion-item>
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
